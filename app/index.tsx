@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet, FlatList, Image, TouchableOpacity, Linking } from 'react-native';
 import { Audio } from 'expo-av';
 
-// If you're doing client credentials:
-import { getAccessToken } from '../utils/spotifyAuth';
-import { searchSongs } from '../utils/spotifySearch';
+// client credentials:
+import { getAccessToken } from '../../utils/spotifyAuth.js';
+import { searchSongs } from '../../utils/spotifySearch.js';
 
 export default function IndexScreen() {
   // Local state
@@ -33,7 +33,7 @@ export default function IndexScreen() {
       });
 
       const { recording } = await Audio.Recording.createAsync(
-        Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY
+        Audio.RecordingOptionsPresets.HIGH_QUALITY
       );
       setRecording(recording);
     } catch (err) {
